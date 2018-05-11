@@ -1,1 +1,25 @@
-
+递归
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isSymmetric = function(root) {
+    if(root == null) return true;
+    return compRoot(root.left, root.right);
+};
+function compRoot(a, b) {
+    if(a == null && b == null) 
+        return true;
+    else if(a!=null && b!= null){  
+            return a.val==b.val && compRoot(a.left, b.right) && compRoot(a.right, b.left);  
+    } else {
+        return false;
+    }
+}
